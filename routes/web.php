@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -21,6 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //authentikasi
 Auth::routes();
 
@@ -30,3 +32,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/Category', [PostController::class, 'index'])->name('post.index');
 Route::get('/tambah/Category', [PostController::class, 'create'])->name('post.create');
 Route::post('/tambah/Category/store', [PostController::class, 'store'])->name('post.store');
+Route::put('/tambah/Category/', [PostController::class, 'edit'])->name('post.edit');
+
+Route::get('/list-buku', [ListController::class, 'index'])->name('buku');
+
+Route::get('/peminjam');
